@@ -5,13 +5,11 @@ import {
   NativeStackNavigationProp,
 } from '@react-navigation/native-stack';
 import Main from '../screens/Main';
+import Chat from '../screens/Chat';
 
 export type AppStackParamList = {
   Main: undefined;
-  DeviceList: undefined;
-  DeviceScreen: {index: number};
-  Joystick: undefined;
-  Quadruped: undefined;
+  Chat: undefined;
 };
 
 type ScreenKeys = keyof AppStackParamList;
@@ -31,6 +29,11 @@ const AppNavigation: React.FC = () => {
         <AppStack.Screen
           name="Main"
           component={Main}
+          options={{headerShown: false, orientation: 'portrait_up'}}
+        />
+        <AppStack.Screen
+          name="Chat"
+          component={Chat}
           options={{headerShown: false, orientation: 'portrait_up'}}
         />
       </AppStack.Navigator>
