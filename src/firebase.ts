@@ -1,6 +1,7 @@
-import {initializeApp} from 'firebase/app';
-import {getAuth} from 'firebase/auth';
-import {getFirestore} from 'firebase/firestore';
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+import { Alert } from 'react-native';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyDCvVlvT_TeADaYDd-Kg7pYsLCOZzh9r6g',
@@ -12,7 +13,9 @@ const firebaseConfig = {
   measurementId: 'G-ZTTL8XX6GM',
 };
 
-export const firebaseApp = initializeApp(firebaseConfig);
+const firebaseApp = initializeApp(firebaseConfig);
 
 export const auth = getAuth(firebaseApp);
+Alert.alert('auth', JSON.stringify(auth, null, 2));
 export const firestore = getFirestore(firebaseApp);
+export const provider = new GoogleAuthProvider();
